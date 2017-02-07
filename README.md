@@ -14,16 +14,16 @@ node index.js
 Now you can open the page at http://localhost:3000/
 
 ## rooms
-* my room
-* kitchen
-* bathroom
+* mi cuarto
+* cocina
+* baño
 
 ## Actions
-* turn on
-* turn off
+* enciende
+* apaga
 
 ## Devices
-* light
+* luz
 
 ## Syntaxis
 ```
@@ -31,9 +31,9 @@ Now you can open the page at http://localhost:3000/
 ```
 
 ## Examples
-* turn on the light of my room
-* turn on light in my room
-* turn off the light in the kitchen
+* enciende la luz de mi cuarto
+* enciende la luz del baño
+* apaga la luz de la cocina
 
 
 ## License

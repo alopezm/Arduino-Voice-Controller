@@ -22,7 +22,7 @@
     // Enabling the start button
     startBtn.disabled = false;
   } else {
-    // Display an error message if the speech recognition is not availabled
+    // Display an error message if the speech recognition is not available
     var errorMsg = document.querySelector('.error-msg');
     errorMsg.classList.remove('hidden');
   }
@@ -36,7 +36,7 @@
 
       // Start the voice recognition
       var recognition = new SpeechRecognition();
-      recognition.lang = 'en-US';
+      recognition.lang = 'es-ES';
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
       recognition.start();
@@ -80,20 +80,20 @@
       console.log('Event: onspeechend');
       recognition.stop();
       startBtn.disabled = false;
-      startBtn.textContent = 'Start new test';
-      status.textContent = 'Processing ...';
+      startBtn.textContent = 'Empezar de nuevo';
+      status.textContent = 'Procesando ...';
     }
 
     function onSpeechStartRecognition () {
       console.log('Event: onspeechstart');
-      status.textContent = 'listening ...';
+      status.textContent = 'Escuchando ...';
     }
 
     function onErrorRecognition (event) {
       console.log('Event: onerror');
       startBtn.disabled = false;
-      startBtn.textContent = 'Start new test';
-      status.textContent = 'Error occurred in recognition: ' + event.error;
+      startBtn.textContent = 'Empezar de nuevo';
+      status.textContent = 'Error en el reconocimiento: ' + event.error;
     }
 
     function fetchRequest (url, data, method) {
