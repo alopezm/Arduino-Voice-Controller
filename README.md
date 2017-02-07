@@ -1,8 +1,8 @@
 # Arduino Voice Controller
 
 ## Arduino Setup
-Follow the instructions for your board at [johnny-five]
-
+1. Follow the instructions for your setup the firmware of your board at [johnny-five].
+2. Connect the Arduino to the PC using a usb cable.
 
 ## Server Install
 
@@ -11,7 +11,29 @@ npm i
 node index.js
 ```
 
-Now you can open the page at http://localhost:3000/static/
+Now you can open the page at http://localhost:3000/
+
+## rooms
+* my room
+* kitchen
+* bathroom
+
+## Actions
+* turn on
+* turn off
+
+## Devices
+* light
+
+## Syntaxis
+```
+<action> <device> <room>
+```
+
+## Examples
+* turn on the light of my room
+* turn on light in my room
+* turn off the light in the kitchen
 
 
 ## License

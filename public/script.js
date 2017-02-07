@@ -8,18 +8,16 @@
   // Disabling the start button until the click event is enabled
   startBtn.disabled = true;
 
+  // Version 1
+  // var phrases = [
+  //   'turn off the light',
+  //   'turn on the light',
+  //   'turn off light',
+  //   'turn on light'
+  // ];
+
   var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-  var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
-  var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
-
-  var phrases = [
-    'turn off the light',
-    'turn on the light',
-    'turn off light',
-    'turn on light'
-  ];
-
-  if(SpeechRecognition && SpeechGrammarList && SpeechRecognitionEvent) {
+  if(SpeechRecognition) {
     startBtn.addEventListener('click', testSpeech);
     // Enabling the start button
     startBtn.disabled = false;
@@ -43,45 +41,71 @@
       recognition.maxAlternatives = 1;
       recognition.start();
 
-      recognition.onresult = function (event) {
-        console.log('Event: onresult');
-        var inputCommand = event.results[0][0].transcript;
-        command.textContent = inputCommand;
+      // Handle the events of the recognition
+      recognition.onspeechstart = onSpeechStartRecognition;
+      recognition.onerror = onErrorRecognition;
+      recognition.onresult = onResultRecognition;
+      recognition.onspeechend = function () {
+        onSpeechEndRecognition(recognition);
+      };
+    }
 
-        var isValidCommand = false;
-        phrases.forEach(function (phrase) {
-          if(inputCommand === phrase) {
-            isValidCommand = true;
-          }
+    function onResultRecognition (event) {
+      console.log('Event: onresult');
+      console.log('Confidence: ' + event.results[0][0].confidence);
+      var inputCommand = event.results[0][0].transcript;
+      command.textContent = inputCommand;
+
+      // Version 1
+      // var isValidCommand = false;
+      // phrases.forEach(function (phrase) {
+      //   if(inputCommand === phrase) {
+      //     isValidCommand = true;
+      //   }
+      // });
+      // if(isValidCommand) {
+      //     status.textContent = 'Valid command';
+      // } else {
+      //     status.textContent = 'Invalid command';
+      // }
+
+      // Version 2
+      fetchRequest('/action', { command: inputCommand })
+        .then(function () {
+          status.textContent = '';
         });
+    };
 
-        if(isValidCommand) {
-            status.textContent = 'Valid result';
-        } else {
-            status.textContent = 'Invalid result';
-        }
+    function onSpeechEndRecognition (recognition) {
+      console.log('Event: onspeechend');
+      recognition.stop();
+      startBtn.disabled = false;
+      startBtn.textContent = 'Start new test';
+      status.textContent = 'Processing ...';
+    }
 
-        console.log('Confidence: ' + event.results[0][0].confidence);
+    function onSpeechStartRecognition () {
+      console.log('Event: onspeechstart');
+      status.textContent = 'listening ...';
+    }
+
+    function onErrorRecognition (event) {
+      console.log('Event: onerror');
+      startBtn.disabled = false;
+      startBtn.textContent = 'Start new test';
+      status.textContent = 'Error occurred in recognition: ' + event.error;
+    }
+
+    function fetchRequest (url, data, method) {
+      var method = method || 'post';
+      var headers = new Headers({ 'Content-Type': 'application/json' });
+      var payload = {
+        headers: headers,
+        method: method,
+        body: JSON.stringify(data)
       };
 
-      recognition.onspeechend = function () {
-        console.log('Event: onspeechend');
-        recognition.stop();
-        startBtn.disabled = false;
-        startBtn.textContent = 'Start new test';
-        status.textContent = 'Processing ...';
-      }
-
-      recognition.onspeechstart= function () {
-        console.log('Event: onspeechstart');
-        status.textContent = 'listening ...';
-      }
-
-      recognition.onerror = function (event) {
-        console.log('Event: onerror');
-        startBtn.disabled = false;
-        startBtn.textContent = 'Start new test';
-        status.textContent = 'Error occurred in recognition: ' + event.error;
-      }
+      console.log({ url: url, payload: payload });
+      return fetch(url, payload);
     }
 })();
