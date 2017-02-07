@@ -13,7 +13,7 @@ node index.js
 
 Now you can open the page at http://localhost:3000/
 
-## rooms
+## Rooms
 * mi cuarto
 * cocina
 * baño
