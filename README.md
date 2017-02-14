@@ -36,8 +36,8 @@ Now you can open the page at http://localhost:3000/
 * turn off the light in the kitchen
 
 ## References
-[Web Specch Api]
-[Web Specch Api Examples]
+* [Web Specch Api]
+* [Web Specch Api Examples]
 
 ## License
 [MIT]
