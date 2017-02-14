@@ -35,6 +35,9 @@ Now you can open the page at http://localhost:3000/
 * turn on light in my room
 * turn off the light in the kitchen
 
+## References
+[Web Specch Api]
+[Web Specch Api Examples]
 
 ## License
 [MIT]
@@ -42,3 +45,5 @@ Now you can open the page at http://localhost:3000/
 [Web Speech Api]: <https://github.com/mdn/web-speech-api/>
 [johnny-five]: <http://johnny-five.io/>
 [MIT]: License
+[Web Specch Api Examples]: <https://github.com/mdn/web-speech-api/>
+[Web Specch Api]: <https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API>
