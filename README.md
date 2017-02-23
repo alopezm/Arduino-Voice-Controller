@@ -30,13 +30,13 @@ Now you can open the page at http://localhost:3000/
 <action> <device> <room>
 ```
 
-## Arduino Example
-![Arduino Example](README/arduino_example.png)
-
 ## Examples
 * turn on the light of my room
 * turn on light in my room
 * turn off the light in the kitchen
+
+## Arduino Example
+![Arduino Example](README/arduino_example.png)
 
 ## References
 * [Web Specch Api]
