@@ -38,8 +38,8 @@ Now you can open the page at http://localhost:3000/
 ## Arduino Example
 ![Arduino Example](README/arduino_example.png)
 
-## Sena Workshop
-[![Video Sena Workshop ](README/video_cover.jpg)](https://vimeo.com/208178907)
+## Video - Sena Workshop
+[![Video - Sena Workshop ](README/video_cover.jpg)](https://vimeo.com/208178907)
 
 ## Spanish Version
 ```
