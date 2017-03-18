@@ -38,6 +38,15 @@ Now you can open the page at http://localhost:3000/
 ## Arduino Example
 ![Arduino Example](README/arduino_example.png)
 
+## Sena Workshop
+[Video Workshop]
+
+## Spanish Version
+```
+git checkout in-spanish
+node index.js
+```
+
 ## References
 * [Web Specch Api]
 * [Web Specch Api Examples]
@@ -50,3 +59,4 @@ Now you can open the page at http://localhost:3000/
 [MIT]: License
 [Web Specch Api Examples]: <https://github.com/mdn/web-speech-api/>
 [Web Specch Api]: <https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API>
+[Video Workshop]: <https://vimeo.com/208178907>
